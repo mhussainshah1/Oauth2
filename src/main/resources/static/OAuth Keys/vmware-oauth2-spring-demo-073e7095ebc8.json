@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vmware-oauth2-spring-demo",
+  "private_key_id": "073e7095ebc880b1bb3e7d5eb6af78fc994f1055",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCSOFY2u010OB6T\nER4Q2+7V5ljH/9nOk2BDBpphMH3EMRYgvfK9tgya+OlNsjB0KPhYIoMDRNRbev92\nQPczWF+ghbAwM2o6oPMWPCYUDnwJR/c9vw/Jqnj5M3rGOyG86CvibU6/cVS2/2lP\nJGzwveM7/i++yM7zgjV1GdiTuYi6nwD0pkCdg7fRyPUzeh72YjW51yKzokJmQGIG\nBf+Ayq+ZnfdCQeNBX+rBHmyy282zKZt6XNO9pQlA69+onqT0YTGKdOyDbwO0eAdJ\nNJGgXx3Y1wlid7wapS+8RN/s6YfDxbsgOFp+5+Rjoz6wxI4Mm7+Rn+0tQ48oIjBw\n5cGYR3EtAgMBAAECggEAD7VfCGY66J9sJB8/UaRZwOphjgBIj/l5P/oiSmABQuXb\nG2K3WfYy3dCb5S2dfafhIObO7bej8L1YBduY3bqYG2YBYExFv01ckCj0wPbauyHb\ncpYSG3eQTjAKTT2RCaW6Vor+Xhwjc712EiXhpkNgJCknS/cayez/0o1s8lczqd4S\n19Nfj0zxgOoW5qo8Eo7ZMegOGow8bc8168SnO0nmqsJkc9nWxRWLjxwWg7jOzpZ7\nOCZidTTGZQ/JL12rlfbqImxOEmtVl2yJvaE/0Q1t8S/fWu7z2GTMUxeuBkY3MnvS\nkMUEDZKKkhIphF8CgjV4l4o13/uRMmPUuv9BDhjHqQKBgQDM7qY9erLa/OSZzchO\nvYDjz032Ka5oddUy7QzpfWI/sDUOyGpE3/YAhhM3vN+jpmwFokEqZGACYvXk5yWl\nTskbAna7ZAi5gXjfEisa61KTuAsu13dLTeuDAKoKmDI84XbSLLOTT9Mrw42A3qGf\n8hVy9SjW+o2mLroJEeJv3DHhiwKBgQC2qDs6nxOjoUyxeIMZneEoxwbucB/cMRq9\npHQ867uO5BAMV61k36UWAjzdRFqPcadjbQ3GKS5N2Rs0EOaT7980d7Y6q9HqZh1L\nL/ipQtteYGKI6+DaBpAmRt08Io3vD6xE3124tyS26ADDt07F0hiI+xf9XoIv7Tml\nDONSBmLfJwKBgQChRgIvibrtWW2xmF9VkA65uO/alEy7yldgv2qU6WaDRnFK0+/F\niha3rMu85nd8+0AxYtIzwVBJMIXggQOARzM+fT7hE8VF750mt86SXbTbqU+rqkco\nTQbVTpWCxulqPejbV/BuMri1zSwzyYCaNdIpaMOeAwmsSUOAVcHEVB4xJwKBgQCG\nQyDOVVINTCpgpVHQiaGQ5MMujxKMOzgJwBGFGk4SmYdGW0hkRpRFmj1885qRqBw/\nVFD0oR6dMIHzgpzKj16FZZ14gQXbA1ZzBv8EA9XWCIlFVgVAneRljl9erZOg7udU\n9M8iUNTW8bBmLJ7lgCpyvgcDQe32JqzhqpiJmZIhrwKBgB5lNH3GfhDv0uCazqyN\nmJ7Tq0ySeHbTQG0GVDF7srkqnal010RAve04XVXDEm2cUALn/Q2jUL5e8Ydt3unw\nxgrOB19lOes8VKn0BOhtRR3Puyn6ICsmJUioIXPxKGvpPle0Cp8toIVXmFKPi8nK\naJvxXVONNgawEalyB2ZVmwAz\n-----END PRIVATE KEY-----\n",
+  "client_email": "intellij@vmware-oauth2-spring-demo.iam.gserviceaccount.com",
+  "client_id": "107402427697695518066",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/intellij%40vmware-oauth2-spring-demo.iam.gserviceaccount.com"
+}
