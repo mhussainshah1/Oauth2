@@ -3,8 +3,10 @@ package com.vmware.oauth2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -29,40 +31,6 @@ import static org.springframework.security.oauth2.client.web.reactive.function.c
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfiguration {
-    @Bean
-    public OAuth2UserService<OAuth2UserRequest, OAuth2User> oauth2UserService(WebClient rest) {
-        var delegate = new DefaultOAuth2UserService();
-        return request -> {
-            OAuth2User user = delegate.loadUser(request);
-            if (!"github".equals(request.getClientRegistration().getRegistrationId())) {
-                return user;
-            }
-
-            var client = new OAuth2AuthorizedClient(request.getClientRegistration(), user.getName(), request.getAccessToken());
-            String url = user.getAttribute("organizations_url");
-            List<Map<String, Object>> orgs = rest
-                    .get().uri(url)
-                    .attributes(oauth2AuthorizedClient(client))
-                    .retrieve()
-                    .bodyToMono(List.class)
-                    .block();
-
-            if (orgs.stream().anyMatch(org -> "spring-projects".equals(org.get("login")))) {
-                return user;
-            }
-
-            throw new OAuth2AuthenticationException(new OAuth2Error("invalid_token", "Not in Spring Team", ""));
-        };
-    }
-
-    @Bean
-    public WebClient rest(ClientRegistrationRepository clients, OAuth2AuthorizedClientRepository authz) {
-        var oauth2 = new ServletOAuth2AuthorizedClientExchangeFilterFunction(clients, authz);
-        return WebClient
-                .builder()
-                .filter(oauth2)
-                .build();
-    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -71,9 +39,10 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests(a -> a
                         .requestMatchers("/",
+                                "/**",
                                 "/error",
-                                "/webjars/**",
-                                "/js/**").permitAll()
+                                "/js/**",
+                                "/webjars/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(e -> e
@@ -82,9 +51,11 @@ public class SecurityConfiguration {
                 .logout(l -> l
                         .logoutSuccessUrl("/").permitAll()
                 )
-                .csrf(c -> c
-                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                )
+                .httpBasic(Customizer.withDefaults())
+                .csrf(CsrfConfigurer::disable)
+                .headers(headers -> headers
+                        .frameOptions()
+                        .disable())
                 .oauth2Login(o -> o
                         .failureHandler((request, response, exception) -> {
                             request.getSession().setAttribute("error.message", exception.getMessage());
