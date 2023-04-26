@@ -21,7 +21,7 @@ import static org.springframework.security.oauth2.client.web.reactive.function.c
 
 @Component
 public class CustomError {
-    @Bean
+/*    @Bean
     public OAuth2UserService<OAuth2UserRequest, OAuth2User> oauth2UserService(WebClient rest) {
         var delegate = new DefaultOAuth2UserService();
         return request -> {
@@ -54,5 +54,5 @@ public class CustomError {
                 .builder()
                 .filter(oauth2)
                 .build();
-    }
+    }*/
 }
